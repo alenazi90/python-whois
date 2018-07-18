@@ -29,6 +29,7 @@ else:
 if args.raw == True:
 	print("\n--\n".join([x for x in data]))
 else:
+	print("DEBGU",args.domain[0], server_list, data)
 	if len(server_list) > 0:
 		parsed = pythonwhois.parse.parse_raw_whois(data, normalized=True, never_query_handles=False, handle_server=server_list[-1])
 	else:

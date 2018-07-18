@@ -1012,7 +1012,14 @@ def is_known_abbreviation(word):
 	return match_regexes(word, known_abbreviations.values())
 
 def has_country(line, country):
-	return country in line.lower()
+	print(line, country)
+
+	try:
+		return country in line.lower()
+	except UnicodeDecodeError, e:
+		print("except UnicodeDecodeError, e:", e)
+		pass
+
 
 def has_incorrect_known_abbreviation(line):
 	for word in line.split():
